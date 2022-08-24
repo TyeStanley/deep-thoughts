@@ -1,7 +1,12 @@
 import React from 'react';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -34,40 +39,35 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <>
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
             <Routes>
-              <Route
-                path="/"
-                element={<Home />}
+              <Route 
+                path="/" 
+                element={<Home />} 
               />
-              <Route
-                path="/login"
-                element={<Login />}
+              <Route 
+                path="/login" 
+                element={<Login />} 
               />
-              <Route
-                path="/signup"
-                element={<Signup />}
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
               />
-              <Route path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
-              <Route
-                path="/thought/:id"
-                element={<SingleThought />}
+              <Route 
+                path="/profile" 
+                element={<Profile />} 
               />
-              <Route
-                path="/thought"
-                element={<SingleThought />}
+              <Route 
+                path="/thought/:id" 
+                element={<SingleThought />} 
               />
-              <Route
-                path="*"
-                element={<NoMatch />}
+              <Route 
+                path="*" 
+                element={<NoMatch />} 
               />
             </Routes>
           </div>
@@ -75,7 +75,6 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-    </>
   );
 }
 
